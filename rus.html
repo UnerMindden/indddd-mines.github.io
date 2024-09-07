@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0, initial-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex,nofollow" />
+    <script src="https://telegram.org/js/telegram-web-app.js?2"></script>
     <title>Интерактивная страница</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
       <style>
@@ -20,6 +27,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
 
         .main-container {
@@ -27,7 +35,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%; /* Slightly smaller than before */
+            width: 80%; /* Slightly smaller than before */
+            height: 100%;
         }
 
         .container {
@@ -135,7 +144,7 @@
             border-radius: 6px; /* Smaller radius */
             background-color: #000000;
             color: white;
-            font-size: 45px; /* Reduced font size */
+            font-size: 20px; /* Reduced font size */
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 3.5px rgba(0, 0, 0, 0.15); /* Subtler shadow */
@@ -158,7 +167,7 @@
 
         #trap-count-label {
             margin-top: 20px;
-            font-size: 70px; /* Smaller font size */
+            font-size: 26px; /* Smaller font size */
             color: white;
             font-family: 'Intro', sans-serif;
             font-weight: bold;
@@ -175,7 +184,7 @@
         .count-display {
             width: 35px; /* Smaller width */
             text-align: center;
-            font-size: 69px; /* Smaller font size */
+            font-size: 45px; /* Smaller font size */
             font-family: 'Intro', sans-serif;
             color: white;
             margin-left: 12px; /* Smaller margins */
@@ -203,12 +212,12 @@
 
         .telegram-icon{
             margin-right: 10px;
-            width: 78px;
-            height: 78px;
+            width: 50px;
+            height: 50px;
         }
 
         #botName {
-            font-size: 58px;
+            font-size: 30px;
             font-weight: bolder;
             color: #ffa500;
             text-transform: lowercase;
@@ -218,7 +227,7 @@
         #loading-text span {
             display: inline-block;
             animation: bounce 0.3s ease infinite alternate;
-            font-size: 90px; /* Smaller font size */
+            font-size: 40px; /* Smaller font size */
             color: rgb(209, 178, 5);
             text-shadow: 0 0.25px 0 #ccc, 0 0.5px 0 #ccc, 0 0.75px 0 #ccc, 0 1px 0 #ccc,
                         0 1.25px 0 #ccc, 0 1.5px 0 transparent, 0 1.75px 0 transparent, 0 2px 0 transparent,
@@ -259,19 +268,19 @@
         }
 
         .img-signal {
-            width: 700px;
-            height: 700px;
+            width: 100%;
+            height: 100%;
             border-radius: 10px;
             transition: 0.1s;
             z-index: 30;
-            transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
+            transition: opacity 0.3s ease-in-out; /* Smooth fade transition */
             opacity: 1; /* Default opacity */
         }
 
         .slider {
             -webkit-appearance: none;
-            width: 100%; /* Увеличенная длина слайдера */
-            height: 50px; /* Увеличенная высота слайдера */
+            width: 30%; /* Увеличенная длина слайдера */
+            height: 20px; /* Увеличенная высота слайдера */
             background: linear-gradient(to right, #57c1eb, #246fa8);
             outline: none;
             opacity: 0.9;
@@ -321,7 +330,6 @@
 <body>
     <div class="main-container">
          <h1 id="loading-text">
-        <!-- <span>G</span><span>U</span><span>R</span><span>U</span><span>H</span><span>A</span><span>C</span><span>K</span> -->
         </h1>
         <div class="container">
             <div class="loader" id="loader">
@@ -337,17 +345,6 @@
             <div id="slider-value" class="count-display">10</div>
         </div>
         <button id="buttonGetSignal" onclick="getSignal()">RECIBIR<br>SEÑAL</button>
-        <div class="bot_name">
-            <!-- <svg class="telegram-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 48 48" width="100" height="100">
-                <path fill="#29b6f6" d="M24,4C13,4,4,13,4,24s9,20,20,20s20-9,20-20S35,4,24,4z"></path>
-                <path fill="#fff" d="M34,15l-3.7,19.1c0,0-0.2,0.9-1.2,0.9c-0.6,0-0.9-0.3-0.9-0.3L20,28l-4-2l-5.1-1.4c0,0-0.9-0.3-0.9-1  c0-0.6,0.9-0.9,0.9-0.9l21.3-8.5c0,0,0.7-0.2,1.1-0.2c0.3,0,0.6,0.1,0.6,0.5C34,14.8,34,15,34,15z">
-                </path>
-                <path fill="#b0bec5" d="M23,30.5l-3.4,3.4c0,0-0.1,0.1-0.3,0.1c-0.1,0-0.1,0-0.2,0l1-6L23,30.5z"></path>
-                <path fill="#cfd8dc" d="M29.9,18.2c-0.2-0.2-0.5-0.3-0.7-0.1L16,26c0,0,2.1,5.9,2.4,6.9c0.3,1,0.6,1,0.6,1l1-6l9.8-9.1  C30,18.7,30.1,18.4,29.9,18.2z">
-                </path>
-            </svg> -->
-    <!-- <span id="botName" style="display: block;"><span>@</span>minesguruhack</span> -->
-</div>
     </div>
     <audio id="sound-effect" src="1.mp3"></audio> <!-- Звуковой эффект для воспроизведения -->
 
